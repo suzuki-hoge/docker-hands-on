@@ -1,0 +1,12 @@
+services:
+  php:
+    build: ./docker/php
+    ports:
+      - "8080:80"
+    volumes:
+      - type: bind
+        source: .
+        target: /work
+    command: php --server 0.0.0.0:80 --docroot /work
+  db:
+    build: ./docker/mysql
